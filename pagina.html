@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Hiran... Te dedico mi primera página Web</title>
+    <style>
+        .corazon {
+            position: fixed;
+            font-size: 20px;
+            color: #FF1493; /* Rosa fuerte */
+            animation: flotar 3s linear forwards;
+            pointer-events: none; /* Para que no interfiera con clics */
+        }
+        @keyframes flotar {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>A tu lado, el mundo tiene sentido</h1>
+    <p style="color: #FF0000;"><strong>No sé si es magia o simple destino, pero desde que llegaste, cada día se siente más viva. Tus ojos son mi refugio, tu risa mi melodía favorita, y tu amor… ese es el regalo más valioso que guardo en el alma.</strong></p>
+
+    <p style="color: #FF0080;"><strong>No necesito promesas grandiosas; me basta con saber que estás aquí, que tus manos encuentran las mías sin buscarlas y que, incluso en silencio, logras llenar todos mis espacios.</strong></p>
+
+    <p style="color: #FF0000;">Gracias por elegirme, como yo te elegiría una y mil veces más. AHORA DA CLIC EN LA PALABRA ***TE AMO</p>
+
+    <button onclick="mostrarAmor()" style="color: #FF0000; background: none; border: none; cursor: pointer; font-size: 16px;">
+        <strong>Te Amo</strong>
+    </button>
+
+    <script>
+        function mostrarAmor() {
+            alert("¡Te amo!");
+            crearCorazones();
+        }
+
+        function crearCorazones() {
+            const corazones = ["❤️", "💖", "💘", "💝", "💗", "💓"]; // Diferentes corazones
+            const numCorazones = 30; // Cantidad de corazones
+
+            for (let i = 0; i < numCorazones; i++) {
+                setTimeout(() => {
+                    const corazon = document.createElement("div");
+                    corazon.className = "corazon";
+                    corazon.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
+                    corazon.style.left = Math.random() * 100 + "vw"; // Posición horizontal aleatoria
+                    corazon.style.animationDuration = Math.random() * 2 + 2 + "s"; // Velocidad aleatoria
+                    document.body.appendChild(corazon);
+
+                    // Eliminar el corazón después de la animación
+                    setTimeout(() => {
+                        corazon.remove();
+                    }, 3000);
+                }, i * 100); // Retraso entre corazones
+            }
+        }
+    </script>
+
+</body>
+</html>
